@@ -1,0 +1,6 @@
+ˆÈ‰ºA•K{
+$input_lines = trim(fgets(STDIN));
+
+$s = str_replace(array("\r\n","\r","\n"), '', $input_lines);
+
+$s = explode(" ", $s);

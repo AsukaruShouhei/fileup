@@ -1,0 +1,55 @@
+ip:192.168.168.15
+
+USer:FtpUser
+pass:jasosai
+
+
+共通仕様-02）共通定数定義書（バッチ）
+→ここに転送先アドレスがきさい
+
+
+
+
+
+
+
+
+C:\Users\asuka>ftp
+ftp> open 192.168.168.15
+192.168.168.15 に接続しました。
+220 Microsoft FTP Service
+200 OPTS UTF8 command successful - UTF8 encoding now ON.
+ユーザー (192.168.168.15:(none)): FtpUser
+331 Password required for FtpUser.
+パスワード:
+230 User logged in.
+ftp> dir
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+01-08-19  06:31PM       <DIR>          ftp
+226 Transfer complete.
+ftp: 47 バイトが受信されました 0.00秒 47.00KB/秒。
+ftp> cd ftp
+250 CWD command successful.
+ftp> dir
+200 PORT command successful.
+125 Data connection already open; Transfer starting.
+01-08-19  06:31PM       <DIR>          furikomiirai
+01-08-19  06:29PM       <DIR>          jastemcif
+01-08-19  07:38PM       <DIR>          kaikeishiwake
+01-08-19  06:31PM       <DIR>          zenno_shiire
+01-08-19  06:31PM       <DIR>          zenno_shohin
+226 Transfer complete.
+ftp: 266 バイトが受信されました 0.01秒 38.00KB/秒。
+ftp>
+
+
+
+
+ローカルディレクトリパス：　C:\JaTokyo\ftp\furikomiirai
+サーバーディレクトリパス：　C:\JaTokyo\ftp\furikomiirai
+
+
+
+\\TS3400DA8E\yoshifuku_partner\西松浦通運リプレース\11.単体テスト仕様書\2_ITフレンズ取込\2-1_日次業務
+
