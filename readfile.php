@@ -2,7 +2,7 @@
 //    	php ../../composer.phar
 	require 'DbManager.php';
 	$db = getDb();
-	$stt = $db->prepare("SELECT id, file, created_at FROM file where id<>4");
+	$stt = $db->prepare("SELECT id, file, created_at FROM file where id<>4 AND id<>9 AND id<>10");
 	$stt->execute();
 	$row = $stt->fetchAll();
 
