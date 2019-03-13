@@ -82,7 +82,7 @@
 		$filename = $uploads_dir.$value["file"];
 		$readfile = file($filename);
 		foreach ($readfile as $key => $value) {
-			$value = mb_convert_encoding($value,"UTF-8",mb_detect_encoding($value, "ASCII,JIS,UTF-8,CP51932,SJIS-win", true));
+			// $value = mb_convert_encoding($value,"UTF-8",mb_detect_encoding($value, "ASCII,JIS,UTF-8,CP51932,SJIS-win", true));
 			// $value = mb_convert_encoding($value, 'utf8');
 			// $value = trim($value);
 			// $value = str_replace('	', '', $value);

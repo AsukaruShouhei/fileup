@@ -7,6 +7,6 @@
 		<a href="#" > テスト版 </a>
 		<a href="#" > テスト版 </a>
 		<a href="#" > テスト版 </a>
-		<a href="#" > テスト版 </a>
+		<a href="./usage" > 使い方 </a>
 </div>
 </div>
