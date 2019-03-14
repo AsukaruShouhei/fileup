@@ -11,11 +11,8 @@
 	$fileMethod = new FileClass();
 	$row = $fileMethod->getFileAll();
 	// // check the ip adress
-	// $ip = new IpAdressClass();
-	// $user_id = $ip->checkIp($_SERVER["REMOTE_ADDR"]);
-	// if (empty($user_id)) {
-	// 	header('Locatoin: error/404.html');
-	// }
+	$ip = new IpAdress();
+	$user_id = $ip->checkIp($_SERVER["REMOTE_ADDR"]);
 ?>
 
 <?php include 'header.php'; ?>
