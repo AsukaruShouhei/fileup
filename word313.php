@@ -4,21 +4,19 @@ require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
 require_once 'PHPExcel/Classes/PHPExcel.php';
 // 読込するファイル
 $readFile = "./uploads/20180105_iTPS_TPD_Qestionnaire_SampleModel_v1.xlsx";
- 
-// 指定ファイルを読み込む
-$objPExcel = PHPExcel_IOFactory::load($readFile);
-// 読み込んだエクセルの参照シートを指定
-$sheet = $objPExcel->getActiveSheet(0);
-// 配列で保持する
-$ary = $sheet->toArray(null,true,true,true);
 
-//    	php ../../composer.phar
-	require 'DbManager.php';
-	$db = getDb();
-	$stt = $db->prepare("SELECT id, file, created_at FROM file where id<>4");
-	$stt->execute();
-	$row = $stt->fetchAll();
-
+//　ファイルの存在チェック
+if ( file_exists($readFile) ) {
+	// 指定ファイルを読み込む
+	$objPExcel = PHPExcel_IOFactory::load($readFile);
+	// 読み込んだエクセルの参照シートを指定
+	$sheet = $objPExcel->getActiveSheet(0);
+	// 配列で保持する
+	$ary = $sheet->toArray(null,true,true,true);
+}
+	require_once 'func/FileClass.php';
+	$files = new FileClass();
+	$row = $files->getFileAll();
 	// ファイルを読み込む
 	$uploads_dir = './uploads/';
 ?>
@@ -106,7 +104,8 @@ $ary = $sheet->toArray(null,true,true,true);
 	// 		echo $value['E']."\n";
 	// } 
  //    	}
-   $data = 
+    if (!empty($ary)) {
+		   $data = 
 <<<EOD
     	（レポート本文出力例）
 
@@ -147,7 +146,9 @@ $ary = $sheet->toArray(null,true,true,true);
 {$ary[35]['C']}
 EOD;
 	echo $data;
-    	?>    		
+	
+	}
+	?>
     </textarea>
   </div>
 	</form>

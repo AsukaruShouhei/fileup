@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	//　ログイン画面遷移によるセッションデーター保持チェック
-	require_once 'func/LoginUser.php';
+	require_once 'func/LoginUserClass.php';
 	$log = new LoginUser();
 	$log->checkSession($_SESSION["user_id"]);
 
