@@ -1,21 +1,21 @@
 <?php
-	require 'DbManager.php';
-	$db = getDb();
-	$stt = $db->prepare("SELECT * FROM file");
-	$stt->execute();
-	$row = $stt->fetchAll();
+	session_start();
+	//　ログイン画面遷移によるセッションデーター保持チェック
+	require_once 'func/LoginUser.php';
+	$log = new LoginUser();
+	$log->checkSession($_SESSION["user_id"]);
 
-	$ip = $_SERVER["REMOTE_ADDR"];
-	$stt = $db->prepare("SELECT id FROM login_user_info WHERE login_ip=:ip)");
-	$stt->bindValue(':ip', $ip);
-	$stt->execute();
-	$user_id = $stt->fetch(PDO::FETCH_ASSOC);
-	if (empty($user_id)) {
-		header('Locatoin: error/404.html');
-	}else{
-		$stt = $db->prepare("INSERT INTO login_user_info(login_ip) VALUES(:ip)");
-		$stt->execute();
-	}
+	require_once 'func/FileClass.php';
+	require_once 'func/IpAdressClass.php';
+	// upload file get all
+	$fileMethod = new FileClass();
+	$row = $fileMethod->getFileAll();
+	// // check the ip adress
+	// $ip = new IpAdressClass();
+	// $user_id = $ip->checkIp($_SERVER["REMOTE_ADDR"]);
+	// if (empty($user_id)) {
+	// 	header('Locatoin: error/404.html');
+	// }
 ?>
 
 <?php include 'header.php'; ?>
