@@ -47,7 +47,7 @@ $ary = $sheet->toArray(null,true,true,true);
 	}
 	#sidebar a:link {
 		color: #fff;
-		text-align: center;
+		text-align: left;
 		margin: 15px;
 	}
 		
