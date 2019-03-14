@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
 require_once 'PHPExcel/Classes/PHPExcel.php';
 // 読込するファイル
@@ -16,7 +16,7 @@ if ( file_exists($readFile) ) {
 }
 	require_once 'func/FileClass.php';
 	$files = new FileClass();
-	$row = $files->getFileAll();
+	$row = $files->getFileAll(null, $_SESSION["user_id"]);
 	// ファイルを読み込む
 	$uploads_dir = './uploads/';
 ?>

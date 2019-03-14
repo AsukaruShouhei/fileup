@@ -9,8 +9,8 @@
 	require_once 'func/IpAdressClass.php';
 	// upload file get all
 	$fileMethod = new FileClass();
-	$row = $fileMethod->getFileAll();
-	// // check the ip adress
+	$row = $fileMethod->getFileAll(null, $_SESSION["user_id"]);
+	// check the ip adress
 	$ip = new IpAdress();
 	$user_id = $ip->checkIp($_SERVER["REMOTE_ADDR"]);
 ?>
@@ -22,12 +22,12 @@
 		<?php
 		if (isset($_SESSION["joutai"])) {
 			?>
-			<div class="alert alert-light" role="alert">アップロード完了</div>
+			<div class="alert alert-success" role="alert"><?php echo $_SESSION["joutai"]; ?></div>
 			<?php
 		}
 
 		?>
-	<form action="file.php" method="post" enctype="multipart/form-data">
+	<form action="insert/file.php" method="post" enctype="multipart/form-data">
 		<span class="red">※　画像データはアップロードしても表示できません。</span>
 		<div class="form-group">
 			<label for="exampleFormControlFile1">Example file input</label>
