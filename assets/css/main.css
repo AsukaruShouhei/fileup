@@ -1,0 +1,35 @@
+#wrapp{
+	width: 75%;
+	padding: 12px;
+	margin-left: 5%;
+}
+#sidebar{
+	float: left;
+	width: 20%;
+	background: #000080;
+	color: #fff;
+	height: 100vw;
+}
+#sidebar a:link {
+	color: #fff;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 5px;
+}
+#fileForms{
+	width: 40%;
+	float: left;
+	padding: 15px;
+}
+#files{
+	width: 30%;
+	margin-left: 5%;
+	float: left;
+}
+.clear{
+	clear: both;
+}
+.red{
+	color: red;
+}
