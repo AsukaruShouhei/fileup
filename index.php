@@ -9,8 +9,8 @@
 	$stt = $db->prepare("SELECT id FROM login_user_info WHERE login_ip=:ip)");
 	$stt->bindValue(':ip', $ip);
 	$stt->execute();
-	$row = $stt->fetch(FETCH::ASSOC);
-	if (empty($row)) {
+	$user_id = $stt->fetch(PDO::FETCH_ASSOC);
+	if (empty($user_id)) {
 		header('Locatoin: error/404.html');
 	}
 ?>
