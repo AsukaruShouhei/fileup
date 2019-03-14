@@ -6,9 +6,13 @@
 	$row = $stt->fetchAll();
 
 	$ip = $_SERVER["REMOTE_ADDR"];
-	$stt = $db->prepare("INSERT INTO login_user_info(login_ip) VALUES(:ip)");
+	$stt = $db->prepare("SELECT id FROM login_user_info WHERE login_ip=:ip)");
 	$stt->bindValue(':ip', $ip);
 	$stt->execute();
+	$row = $stt->fetch(FETCH::ASSOC);
+	if (empty($row)) {
+		header('Locatoin: error/404.html');
+	}
 ?>
 
 <!DOCTYPE html>
