@@ -12,6 +12,9 @@
 	$user_id = $stt->fetch(PDO::FETCH_ASSOC);
 	if (empty($user_id)) {
 		header('Locatoin: error/404.html');
+	}else{
+		$stt = $db->prepare("INSERT INTO login_user_info(login_ip) VALUES(:ip)");
+		$stt->execute();
 	}
 ?>
 
